@@ -3,6 +3,7 @@ package org.kiwi.spring.jdbc;
 import com.google.common.base.Function;
 import com.google.common.collect.ImmutableList;
 import org.springframework.beans.factory.annotation.Required;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -38,6 +39,7 @@ public class PeopleDao {
         }).toList();
     }
 
+    @Cacheable("peopleCount")
     public int getPeopleCount() {
         return (Integer) jdbcTemplate.queryForObject(COUNT_PEOPLE_QUERY, Integer.class);
     }
