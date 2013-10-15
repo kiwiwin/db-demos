@@ -1,0 +1,18 @@
+ext {
+    springVersion = "3.2.2.RELEASE"
+}
+
+dependencies {
+    repositories {
+        mavenCentral()
+    }
+
+    compile("org.springframework:spring-jdbc:$springVersion",
+            "org.springframework:spring-context:$springVersion",
+            "com.google.guava:guava:14.0.1")
+
+    testCompile("org.springframework:spring-test:$springVersion",
+            "junit:junit:4.11")
+
+    runtime "postgresql:postgresql:9.1-901.jdbc4"
+}
